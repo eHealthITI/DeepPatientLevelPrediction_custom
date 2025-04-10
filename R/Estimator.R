@@ -478,9 +478,15 @@ createEstimator <- function(modelParameters,
       plpModel$modelDesign$modelSettings$modelType
   }
 
-  model <-
-    reticulate::import_from_path(modelParameters$modelType,
-                                 path = path)[[modelParameters$modelType]]
+  # Check if model type is LSTM_custom
+  if (modelParameters$modelType == "LSTM_custom") {
+    model <- reticulate::import_from_path("LSTM_custom", path = path)$LSTMCustom
+    estimatorSettings$modelType <- "LSTM_custom"
+  } else {
+    # Handle other models (like ResNet)
+    model <- reticulate::import_from_path(modelParameters$modelType, path = path)[[modelParameters$modelType]]
+  }
+  
   estimator <- reticulate::import_from_path("Estimator", path = path)$Estimator
 
   modelParameters <- camelCaseToSnakeCaseNames(modelParameters)
