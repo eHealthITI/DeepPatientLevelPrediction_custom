@@ -5,7 +5,7 @@ setLstm <- function(numLayers = 1,
                     bidirectional = TRUE,
                     estimatorSettings = setEstimator(),
                     hyperParamSearch = "random",
-                    randomSample = 100,
+                    randomSample = 1,
                     randomSampleSeed = NULL) {
 
   # Input checks (like the ones in setTransformer)
