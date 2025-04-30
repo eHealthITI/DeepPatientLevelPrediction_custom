@@ -56,7 +56,7 @@ setDefaultLstm <- function(estimatorSettings = setEstimator(
     bidirectional = TRUE,
     estimatorSettings = estimatorSettings,
     hyperParamSearch = "random",
-    randomSample = 100
+    randomSample = 1
   )
   attr(lstmSettings, "settings")$name <- "LSTM_custom"
   return(lstmSettings)
