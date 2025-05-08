@@ -3,7 +3,7 @@ import math
 from torch import nn
 from ResNet import NumericalEmbedding
 
-class LSTMModel(nn.Module):
+class LSTM_custom(nn.Module):
     def __init__(
             self, 
             cat_features,
@@ -16,7 +16,7 @@ class LSTMModel(nn.Module):
             dim_out=1,       # Output dimension set to 1
             model_type="LSTM_custom"
         ):
-        super(LSTMModel, self).__init__()
+        super(LSTM_custom, self).__init__()
 
         self.name = model_type
         cat_features = int(cat_features)
