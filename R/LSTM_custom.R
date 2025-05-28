@@ -12,7 +12,7 @@ setLstm <- function(numLayers = 1,
   
   paramGrid <- list(
     numLayers = numLayers,
-    hiddenSize = hiddenSize,
+    hiddenSize = as.integer(hiddenSize),
     dropout = dropout,
     bidirectional = bidirectional
   )
@@ -51,7 +51,7 @@ setDefaultLstm <- function(estimatorSettings = setEstimator(
                                     )) {
   lstmSettings <- setLstm(
     numLayers = 3,
-    hiddenSize = 128,
+    hiddenSize = as.integer(128),
     dropout = 0.2,
     bidirectional = TRUE,
     estimatorSettings = estimatorSettings,
