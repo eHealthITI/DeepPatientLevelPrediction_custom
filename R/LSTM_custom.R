@@ -11,7 +11,7 @@ setLstm <- function(numLayers = 1,
   # Input checks (like the ones in setTransformer)
   
   paramGrid <- list(
-    numLayers = numLayers,
+    numLayers = as.integer(numLayers),
     hiddenSize = as.integer(hiddenSize),
     dropout = dropout,
     bidirectional = bidirectional
@@ -50,7 +50,7 @@ setDefaultLstm <- function(estimatorSettings = setEstimator(
                                       device = "cpu"
                                     )) {
   lstmSettings <- setLstm(
-    numLayers = 3,
+    numLayers = as.integer(3),
     hiddenSize = as.integer(128),
     dropout = 0.2,
     bidirectional = TRUE,
