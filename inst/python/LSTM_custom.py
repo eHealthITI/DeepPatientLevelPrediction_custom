@@ -22,6 +22,7 @@ class LSTM_custom(nn.Module):
         cat_features = int(cat_features)
         num_features = int(num_features)
         size_embedding = int(size_embedding)
+        hidden_size = int(hidden_size)
 
         # Store bidirectional and hidden size for later use
         self.bidirectional = bidirectional
