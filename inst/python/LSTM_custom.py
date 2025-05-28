@@ -63,7 +63,8 @@ class LSTM_custom(nn.Module):
             x_num = input["num"]
             x_num_embed = self.num_embedding(x_num)  # Numerical embedding
             # Combine embeddings (taking mean for numerical features, similar to MLP)
-            x = (x_cat_embed + x_num_embed.mean(dim=1)) / 2
+            x = torch.cat([x_cat_embed, x_num_embed.mean(dim=1)], dim=1)  # [batch_size, 512]
+
         else:
             x = x_cat_embed
 
